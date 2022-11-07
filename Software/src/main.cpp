@@ -17,19 +17,19 @@
 #define CLK A1        // Clock pin
 #define MATRIX_ORIENTATION 1 // 8x8 LED Matrix orientation  Top  = 1, Bottom = 2, Left = 3, Right = 4
 
-Otto otto_instance; // This is Otto!
+Otto otto; // This is Otto!
 
 ///////////////////////////////////////////////////////////////////
 //-- Setup ------------------------------------------------------//
 ///////////////////////////////////////////////////////////////////
 void setup()
 {
-  otto_instance.init(LEFTLEG, RIGHTLEG, LEFTFOOT, RIGHTFOOT, true, BUZZER); // Set the servo pins and BUZZER pin
-  otto_instance.initMATRIX(DIN, CS, CLK, MATRIX_ORIENTATION);
-  otto_instance.sing(S_connection); // Otto wake up!
-  otto_instance.home();
+  otto.init(LEFTLEG, RIGHTLEG, LEFTFOOT, RIGHTFOOT, true, BUZZER); // Set the servo pins and BUZZER pin
+  otto.initMATRIX(DIN, CS, CLK, MATRIX_ORIENTATION);
+  otto.sing(S_connection); // Otto wake up!
+  otto.home();
   delay(50);
-  otto_instance.playGesture(OttoHappy);
+  otto.playGesture(OttoHappy);
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -37,136 +37,136 @@ void setup()
 ///////////////////////////////////////////////////////////////////
 void loop()
 {
-  otto_instance.walk(2, 1000, FORWARD);  // 2 steps, "TIME". IF HIGHER THE VALUE THEN SLOWER (from 600 to 1400), 1 FORWARD
-  otto_instance.walk(2, 1000, BACKWARD); // 2 steps, T, -1 BACKWARD
-  otto_instance.turn(2, 1000, LEFT);  // 3 steps turning LEFT
-  otto_instance._tone(10, 3, 1);
-  otto_instance.bendTones(100, 200, 1.04, 10, 10);
-  otto_instance.home();
+  otto.walk(2, 1000, FORWARD);  // 2 steps, "TIME". IF HIGHER THE VALUE THEN SLOWER (from 600 to 1400), 1 FORWARD
+  otto.walk(2, 1000, BACKWARD); // 2 steps, T, -1 BACKWARD
+  otto.turn(2, 1000, LEFT);  // 3 steps turning LEFT
+  otto._tone(10, 3, 1);
+  otto.bendTones(100, 200, 1.04, 10, 10);
+  otto.home();
   delay(100);
-  otto_instance.turn(2, 1000, RIGHT); // 3 steps turning RIGHT
-  otto_instance.bend(1, 500, LEFT);   // usually steps =1, T=2000
-  otto_instance.bend(1, 2000, RIGHT);
-  otto_instance.shakeLeg(1, 1500, LEFT);
-  otto_instance.home();
+  otto.turn(2, 1000, RIGHT); // 3 steps turning RIGHT
+  otto.bend(1, 500, LEFT);   // usually steps =1, T=2000
+  otto.bend(1, 2000, RIGHT);
+  otto.shakeLeg(1, 1500, LEFT);
+  otto.home();
   delay(100);
-  otto_instance.shakeLeg(1, 2000, RIGHT);
-  otto_instance.moonwalker(3, 1000, 25, LEFT); 
-  otto_instance.moonwalker(3, 1000, 25, RIGHT);
-  otto_instance.crusaito(2, 1000, 20, LEFT);
-  otto_instance.crusaito(2, 1000, 20, RIGHT);
+  otto.shakeLeg(1, 2000, RIGHT);
+  otto.moonwalker(3, 1000, 25, LEFT); 
+  otto.moonwalker(3, 1000, 25, RIGHT);
+  otto.crusaito(2, 1000, 20, LEFT);
+  otto.crusaito(2, 1000, 20, RIGHT);
   delay(100);
-  otto_instance.flapping(2, 1000, 20, LEFT);
-  otto_instance.flapping(2, 1000, 20, RIGHT);
+  otto.flapping(2, 1000, 20, LEFT);
+  otto.flapping(2, 1000, 20, RIGHT);
   delay(100);
-  otto_instance.swing(2, 1000, 20);
-  otto_instance.tiptoeSwing(2, 1000, 20);
-  otto_instance.jitter(2, 1000, 20); //(small T)
-  otto_instance.updown(2, 1500, 20); // 20 = H "HEIGHT of movement"T
-  otto_instance.ascendingTurn(2, 1000, 50);
-  otto_instance.jump(1, 500); // It doesn't really jumpl ;P
-  otto_instance.home();
+  otto.swing(2, 1000, 20);
+  otto.tiptoeSwing(2, 1000, 20);
+  otto.jitter(2, 1000, 20); //(small T)
+  otto.updown(2, 1500, 20); // 20 = H "HEIGHT of movement"T
+  otto.ascendingTurn(2, 1000, 50);
+  otto.jump(1, 500); // It doesn't really jumpl ;P
+  otto.home();
   delay(100);
-  otto_instance.sing(S_cuddly);
-  otto_instance.sing(S_OhOoh);
-  otto_instance.sing(S_OhOoh2);
-  otto_instance.sing(S_surprise);
-  otto_instance.sing(S_buttonPushed);
-  otto_instance.sing(S_mode1);
-  otto_instance.sing(S_mode2);
-  otto_instance.sing(S_mode3);
-  otto_instance.sing(S_sleeping);
-  otto_instance.sing(S_fart1);
-  otto_instance.sing(S_fart2);
-  otto_instance.sing(S_fart3);
-  otto_instance.sing(S_happy);
-  otto_instance.sing(S_happy_short);
-  otto_instance.sing(S_superHappy);
-  otto_instance.sing(S_sad);
-  otto_instance.sing(S_confused);
-  otto_instance.sing(S_disconnection);
+  otto.sing(S_cuddly);
+  otto.sing(S_OhOoh);
+  otto.sing(S_OhOoh2);
+  otto.sing(S_surprise);
+  otto.sing(S_buttonPushed);
+  otto.sing(S_mode1);
+  otto.sing(S_mode2);
+  otto.sing(S_mode3);
+  otto.sing(S_sleeping);
+  otto.sing(S_fart1);
+  otto.sing(S_fart2);
+  otto.sing(S_fart3);
+  otto.sing(S_happy);
+  otto.sing(S_happy_short);
+  otto.sing(S_superHappy);
+  otto.sing(S_sad);
+  otto.sing(S_confused);
+  otto.sing(S_disconnection);
   delay(100);
-  otto_instance.playGesture(OttoHappy);
-  otto_instance.playGesture(OttoSuperHappy);
-  otto_instance.playGesture(OttoSad);
-  otto_instance.playGesture(OttoVictory);
-  otto_instance.playGesture(OttoAngry);
-  otto_instance.playGesture(OttoSleeping);
-  otto_instance.playGesture(OttoFretful);
-  otto_instance.playGesture(OttoLove);
-  otto_instance.playGesture(OttoConfused);
-  otto_instance.playGesture(OttoFart);
-  otto_instance.playGesture(OttoWave);
-  otto_instance.playGesture(OttoMagic);
+  otto.playGesture(OttoHappy);
+  otto.playGesture(OttoSuperHappy);
+  otto.playGesture(OttoSad);
+  otto.playGesture(OttoVictory);
+  otto.playGesture(OttoAngry);
+  otto.playGesture(OttoSleeping);
+  otto.playGesture(OttoFretful);
+  otto.playGesture(OttoLove);
+  otto.playGesture(OttoConfused);
+  otto.playGesture(OttoFart);
+  otto.playGesture(OttoWave);
+  otto.playGesture(OttoMagic);
   //otto.playGesture(OttoFail);
-  otto_instance.home();
+  otto.home();
   delay(100);
-  otto_instance.putMouth(zero);
+  otto.putMouth(zero);
   delay(100);
-  otto_instance.putMouth(one);
+  otto.putMouth(one);
   delay(100);
-  otto_instance.putMouth(two);
+  otto.putMouth(two);
   delay(100);
-  otto_instance.putMouth(three);
+  otto.putMouth(three);
   delay(100);
-  otto_instance.putMouth(four);
+  otto.putMouth(four);
   delay(100);
-  otto_instance.putMouth(five);
+  otto.putMouth(five);
   delay(100);
-  otto_instance.putMouth(6);
+  otto.putMouth(6);
   delay(100);
-  otto_instance.putMouth(7);
+  otto.putMouth(7);
   delay(100);
-  otto_instance.putMouth(8);
+  otto.putMouth(8);
   delay(100);
-  otto_instance.putMouth(9);
+  otto.putMouth(9);
   delay(100);
-  otto_instance.putMouth(smile);
+  otto.putMouth(smile);
   delay(100);
-  otto_instance.putMouth(happyOpen);
+  otto.putMouth(happyOpen);
   delay(100);
-  otto_instance.putMouth(happyClosed);
+  otto.putMouth(happyClosed);
   delay(100);
-  otto_instance.putMouth(heart);
+  otto.putMouth(heart);
   delay(100);
-  otto_instance.putMouth(angry);
+  otto.putMouth(angry);
   delay(100);
-  otto_instance.putMouth(smallSurprise);
+  otto.putMouth(smallSurprise);
   delay(100);
-  otto_instance.putMouth(bigSurprise);
+  otto.putMouth(bigSurprise);
   delay(100);
-  otto_instance.putMouth(tongueOut);
+  otto.putMouth(tongueOut);
   delay(100);
-  otto_instance.putMouth(confused);
+  otto.putMouth(confused);
   delay(100);
-  otto_instance.putMouth(21); // diagonal
+  otto.putMouth(21); // diagonal
   delay(100);
-  otto_instance.putMouth(27); // interrogation
+  otto.putMouth(27); // interrogation
   delay(100);
-  otto_instance.putMouth(23); // sad open
+  otto.putMouth(23); // sad open
   delay(100);
-  otto_instance.putMouth(24); // sad closed
+  otto.putMouth(24); // sad closed
   delay(100);
-  otto_instance.putMouth(vamp1);
+  otto.putMouth(vamp1);
   delay(100);
-  otto_instance.putMouth(vamp2);
+  otto.putMouth(vamp2);
   delay(100);
-  otto_instance.putMouth(xMouth);
+  otto.putMouth(xMouth);
   delay(100);
-  otto_instance.putMouth(okMouth);
+  otto.putMouth(okMouth);
   delay(100);
-  otto_instance.putMouth(thunder);
+  otto.putMouth(thunder);
   delay(100);
-  otto_instance.putMouth(lineMouth);
+  otto.putMouth(lineMouth);
   delay(100);
-  otto_instance.putMouth(culito);
+  otto.putMouth(culito);
   delay(100);
-  otto_instance.putAnimationMouth(littleUuh, 0);
+  otto.putAnimationMouth(littleUuh, 0);
   delay(1000);
-  otto_instance.putAnimationMouth(dreamMouth, 0);
+  otto.putAnimationMouth(dreamMouth, 0);
   delay(1000);
-  otto_instance.putAnimationMouth(dreamMouth, 1);
+  otto.putAnimationMouth(dreamMouth, 1);
   delay(1000);
-  otto_instance.putAnimationMouth(dreamMouth, 2);
+  otto.putAnimationMouth(dreamMouth, 2);
   delay(1000);
 }
