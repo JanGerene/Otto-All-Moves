@@ -1,4 +1,4 @@
-# OttoÂll-Moves
+# Otto-All-Moves
 
 Otto version with all moves
 
