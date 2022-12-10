@@ -45,7 +45,6 @@ void loop()
   otto.home();
   delay(100);
   otto.turn(2, 1000, RIGHT); // 3 steps turning RIGHT
-  otto.bend(1, 500, LEFT);   // usually steps =1, T=2000
   otto.bend(1, 2000, RIGHT);
   otto.shakeLeg(1, 1500, LEFT);
   otto.home();
